@@ -15,17 +15,16 @@
  ~ You should have received a copy of the GNU General Public License
  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>edu.stanford.nlp.wso2</groupId>
-    <artifactId>stanford-nlp</artifactId>
-    <version>3.4.0-wso2v1</version>
+    <groupId>org.geotools.wso2</groupId>
+    <artifactId>gt-geojson</artifactId>
+    <version>13.0.0-wso2v1</version>
 
-    <name>stanford-nlp.wso2</name>
+    <name>gt-geojson.wso2</name>
     <packaging>bundle</packaging>
     <description>
         This bundle will represent Stanford NLP Library.
@@ -41,39 +40,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-corenlp</artifactId>
-            <version>${stanford.corenlp.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-corenlp</artifactId>
-            <version>${stanford.corenlp.version}</version>
-            <classifier>models</classifier>
-        </dependency>
-        <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-tregex</artifactId>
-            <version>${stanford.tregex.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>de.jollyday</groupId>
-            <artifactId>jollyday</artifactId>
-            <version>${jollyday.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>${joda.time.version}</version>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-geojson</artifactId>
+            <version>${geotools.version}</version>
         </dependency>
     </dependencies>
 
     <properties>
-        <joda.time.version>2.1</joda.time.version>
-        <jollyday.version>0.4.7</jollyday.version>
-        <stanford-nlp.version>3.4.0-wso2v1</stanford-nlp.version>
-        <stanford.tregex.version>3.4.1</stanford.tregex.version>
-        <stanford.corenlp.version>3.4</stanford.corenlp.version>
+        <geotools.version>13.0</geotools.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -89,12 +63,14 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            edu.stanford.nlp.*;-split-package:=merge-first
+                            com.vividsolutions.*,
+                            org.jdom.*,
+                            javax.media.*,
+                            org.geotools.*;-split-package:=merge-last,
                         </Export-Package>
                         <Import-Package>
                             *;resolution:=optional
                         </Import-Package>
-                        <Embed-Dependency>jollyday|joda-time|runtime;inline=false;</Embed-Dependency>
                     </instructions>
                 </configuration>
             </plugin>
@@ -103,9 +79,13 @@
 
     <repositories>
         <repository>
-            <id>Stanford-nexus</id>
-            <name>Stanford internal Repository</name>
-            <url>http://mu.lti.cs.cmu.edu:8081/nexus/content/groups/public/</url>
+            <id>geomajas-nexus</id>
+            <url>http://apps.geomajas.org/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
         </repository>
     </repositories>
 
