@@ -21,14 +21,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>edu.stanford.nlp.wso2</groupId>
-    <artifactId>stanford-nlp</artifactId>
-    <version>3.4.0-wso2v1</version>
+    <groupId>org.wso2.orbit.com.github.lucarosellini.rJava</groupId>
+    <artifactId>r-java</artifactId>
+    <version>0.9.7.wso2v1</version>
 
-    <name>stanford-nlp.wso2</name>
+    <name>r-java.wso2</name>
     <packaging>bundle</packaging>
     <description>
-        This bundle will represent Stanford NLP Library.
+        This bundle will represent rJava Library.
     </description>
     <url>http://wso2.org</url>
 
@@ -41,39 +41,24 @@
 
     <dependencies>
         <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-corenlp</artifactId>
-            <version>${stanford.corenlp.version}</version>
+            <groupId>com.github.lucarosellini.rJava</groupId>
+            <artifactId>JRI</artifactId>
+            <version>${rjava.version}</version>
         </dependency>
         <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-corenlp</artifactId>
-            <version>${stanford.corenlp.version}</version>
-            <classifier>models</classifier>
+            <groupId>com.github.lucarosellini.rJava</groupId>
+            <artifactId>JRIEngine</artifactId>
+            <version>${rjava.version}</version>
         </dependency>
         <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-tregex</artifactId>
-            <version>${stanford.tregex.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>de.jollyday</groupId>
-            <artifactId>jollyday</artifactId>
-            <version>${jollyday.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>${joda.time.version}</version>
+            <groupId>com.github.lucarosellini.rJava</groupId>
+            <artifactId>REngine</artifactId>
+            <version>${rjava.version}</version>
         </dependency>
     </dependencies>
 
     <properties>
-        <joda.time.version>2.1</joda.time.version>
-        <jollyday.version>0.4.7</jollyday.version>
-        <stanford-nlp.version>3.4.0-wso2v1</stanford-nlp.version>
-        <stanford.tregex.version>3.4.1</stanford.tregex.version>
-        <stanford.corenlp.version>3.4</stanford.corenlp.version>
+        <rjava.version>0.9-7</rjava.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -89,12 +74,11 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            edu.stanford.nlp.*;-split-package:=merge-first
+                            org.rosuda.*;-split-package:=merge-last
                         </Export-Package>
                         <Import-Package>
                             *;resolution:=optional
                         </Import-Package>
-                        <Embed-Dependency>jollyday|joda-time|runtime;inline=false;</Embed-Dependency>
                     </instructions>
                 </configuration>
             </plugin>
@@ -102,38 +86,6 @@
     </build>
 
     <repositories>
-        <repository>
-            <id>Stanford-nexus</id>
-            <name>Stanford internal Repository</name>
-            <url>http://mu.lti.cs.cmu.edu:8081/nexus/content/groups/public/</url>
-        </repository>
-
-        <!-- WSO2 released artifact repository -->
-        <repository>
-            <id>wso2.releases</id>
-            <name>WSO2 Releases Repository</name>
-            <url>http://maven.wso2.org/nexus/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </releases>
-        </repository>
-
-        <!-- WSO2 Snapshot artifact repository -->
-        <repository>
-            <id>wso2.snapshots</id>
-            <name>WSO2 Snapshot Repository</name>
-            <url>http://maven.wso2.org/nexus/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-
         <repository>
             <id>wso2-nexus</id>
             <name>WSO2 internal Repository</name>

@@ -15,20 +15,19 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.lucarosellini.rJava.wso2</groupId>
-    <artifactId>r-java</artifactId>
-    <version>0.9.7-wso2v1</version>
+    <groupId>org.wso2.orbit.org.jpmml</groupId>
+    <artifactId>pmml-schema</artifactId>
+    <version>1.1.16.wso2v1</version>
 
-    <name>r-java.wso2</name>
+    <name>pmml-schema.wso2</name>
     <packaging>bundle</packaging>
     <description>
-        This bundle will represent rJava Library.
+        This bundle will represent JPMML Schema Library.
     </description>
     <url>http://wso2.org</url>
 
@@ -41,25 +40,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.lucarosellini.rJava</groupId>
-            <artifactId>JRI</artifactId>
-            <version>${rjava.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.lucarosellini.rJava</groupId>
-            <artifactId>JRIEngine</artifactId>
-            <version>${rjava.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.lucarosellini.rJava</groupId>
-            <artifactId>REngine</artifactId>
-            <version>${rjava.version}</version>
+            <groupId>org.jpmml</groupId>
+            <artifactId>pmml-schema</artifactId>
+            <version>${jpmml.model.version}</version>
         </dependency>
     </dependencies>
 
     <properties>
-        <rjava.version>0.9-7</rjava.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jpmml.model.version>1.1.16</jpmml.model.version>
     </properties>
 
     <build>
@@ -74,7 +62,7 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            org.rosuda.*;-split-package:=merge-last
+                            org.jpmml.schema.*
                         </Export-Package>
                         <Import-Package>
                             *;resolution:=optional
@@ -86,6 +74,33 @@
     </build>
 
     <repositories>
+
+        <!-- WSO2 released artifact repository -->
+        <repository>
+            <id>wso2.releases</id>
+            <name>WSO2 Releases Repository</name>
+            <url>http://maven.wso2.org/nexus/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </repository>
+
+        <!-- WSO2 Snapshot artifact repository -->
+        <repository>
+            <id>wso2.snapshots</id>
+            <name>WSO2 Snapshot Repository</name>
+            <url>http://maven.wso2.org/nexus/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+
         <repository>
             <id>wso2-nexus</id>
             <name>WSO2 internal Repository</name>
