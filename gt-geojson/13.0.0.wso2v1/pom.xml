@@ -20,14 +20,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.wso2.orbit.org.jpmml</groupId>
-    <artifactId>pmml-schema</artifactId>
-    <version>1.1.16-wso2v1</version>
+    <groupId>org.wso2.orbit.org.geotools</groupId>
+    <artifactId>gt-geojson</artifactId>
+    <version>13.0.0.wso2v1</version>
 
-    <name>pmml-schema.wso2</name>
+    <name>gt-geojson.wso2</name>
     <packaging>bundle</packaging>
     <description>
-        This bundle will represent JPMML Schema Library.
+        This bundle will represent Stanford NLP Library.
     </description>
     <url>http://wso2.org</url>
 
@@ -40,14 +40,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jpmml</groupId>
-            <artifactId>pmml-schema</artifactId>
-            <version>${jpmml.model.version}</version>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-geojson</artifactId>
+            <version>${geotools.version}</version>
         </dependency>
     </dependencies>
 
     <properties>
-        <jpmml.model.version>1.1.16</jpmml.model.version>
+        <geotools.version>13.0</geotools.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <build>
@@ -62,7 +63,10 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            org.jpmml.schema.*;-split-package:=merge-first
+                            com.vividsolutions.*,
+                            org.jdom.*,
+                            javax.media.*,
+                            org.geotools.*;-split-package:=merge-last,
                         </Export-Package>
                         <Import-Package>
                             *;resolution:=optional
@@ -74,37 +78,9 @@
     </build>
 
     <repositories>
-
-        <!-- WSO2 released artifact repository -->
         <repository>
-            <id>wso2.releases</id>
-            <name>WSO2 Releases Repository</name>
-            <url>http://maven.wso2.org/nexus/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </releases>
-        </repository>
-
-        <!-- WSO2 Snapshot artifact repository -->
-        <repository>
-            <id>wso2.snapshots</id>
-            <name>WSO2 Snapshot Repository</name>
-            <url>http://maven.wso2.org/nexus/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-
-        <repository>
-            <id>wso2-nexus</id>
-            <name>WSO2 internal Repository</name>
-            <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+            <id>geomajas-nexus</id>
+            <url>http://apps.geomajas.org/nexus/content/groups/public/</url>
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>daily</updatePolicy>

@@ -38,13 +38,13 @@
 
     <modules>
         <!--<module>stanford-tregex-installer</module>-->
-        <module>stanford-nlp/3.4.0-wso2v1</module>
-        <module>r-java/0.9.7-wso2v1</module>
-        <module>gt-geojson/13.0.0-wso2v1</module>
-        <module>pmml-manager/1.1.16-wso2v1</module>
-        <module>pmml-model/1.1.16-wso2v1</module>
-        <module>pmml-schema/1.1.16-wso2v1</module>
-        <module>pmml-evaluator/1.1.16-wso2v1</module>
+        <module>stanford-nlp/3.4.0.wso2v1</module>
+        <module>r-java/0.9.7.wso2v1</module>
+        <module>gt-geojson/13.0.0.wso2v1</module>
+        <module>pmml-manager/1.1.16.wso2v1</module>
+        <module>pmml-model/1.1.16.wso2v1</module>
+        <module>pmml-schema/1.1.16.wso2v1</module>
+        <module>pmml-evaluator/1.1.16.wso2v1</module>
     </modules>
 
     <build>

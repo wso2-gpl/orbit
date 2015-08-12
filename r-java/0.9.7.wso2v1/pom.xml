@@ -15,19 +15,20 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.wso2.orbit.org.jpmml</groupId>
-    <artifactId>pmml-evaluator</artifactId>
-    <version>1.1.16-wso2v1</version>
+    <groupId>org.wso2.orbit.com.github.lucarosellini.rJava</groupId>
+    <artifactId>r-java</artifactId>
+    <version>0.9.7.wso2v1</version>
 
-    <name>pmml-evaluator.wso2</name>
+    <name>r-java.wso2</name>
     <packaging>bundle</packaging>
     <description>
-        This bundle will represent JPMML Evaluator Library.
+        This bundle will represent rJava Library.
     </description>
     <url>http://wso2.org</url>
 
@@ -40,16 +41,25 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jpmml</groupId>
-            <artifactId>pmml-evaluator</artifactId>
-            <version>${jpmml.model.version}</version>
+            <groupId>com.github.lucarosellini.rJava</groupId>
+            <artifactId>JRI</artifactId>
+            <version>${rjava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.lucarosellini.rJava</groupId>
+            <artifactId>JRIEngine</artifactId>
+            <version>${rjava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.lucarosellini.rJava</groupId>
+            <artifactId>REngine</artifactId>
+            <version>${rjava.version}</version>
         </dependency>
     </dependencies>
 
     <properties>
-        <jpmml.model.version>1.1.16</jpmml.model.version>
-        <guava.version.range>[15.0, 18.0]</guava.version.range>
-        <joda.version.range>[2.2, 2.5]</joda.version.range>
+        <rjava.version>0.9-7</rjava.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <build>
@@ -64,11 +74,9 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            org.jpmml.evaluator.*;-split-package:=merge-first
+                            org.rosuda.*;-split-package:=merge-last
                         </Export-Package>
                         <Import-Package>
-                            com.google.common.*; version="${guava.version.range}",
-                            org.joda.time.*; version="${joda.version.range}",
                             *;resolution:=optional
                         </Import-Package>
                     </instructions>
@@ -78,33 +86,6 @@
     </build>
 
     <repositories>
-
-        <!-- WSO2 released artifact repository -->
-        <repository>
-            <id>wso2.releases</id>
-            <name>WSO2 Releases Repository</name>
-            <url>http://maven.wso2.org/nexus/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </releases>
-        </repository>
-
-        <!-- WSO2 Snapshot artifact repository -->
-        <repository>
-            <id>wso2.snapshots</id>
-            <name>WSO2 Snapshot Repository</name>
-            <url>http://maven.wso2.org/nexus/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-
         <repository>
             <id>wso2-nexus</id>
             <name>WSO2 internal Repository</name>
