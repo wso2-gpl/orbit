@@ -127,4 +127,17 @@
             <url>scp://dist.wso2.org/home/httpd/dist.wso2.org/snapshots/maven2/</url>
         </snapshotRepository>
     </distributionManagement>
+
+    <scm>
+        <url>https://github.com/wso2-gpl/orbit.git</url>
+        <developerConnection>scm:git:https://github.com/wso2-gpl/orbit.git</developerConnection>
+        <connection>scm:git:https://github.com/wso2-gpl/orbit.git</connection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.scm.id>my-scm-server</project.scm.id>
+    </properties>
+
 </project>
