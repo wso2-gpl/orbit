@@ -21,7 +21,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2.carbon.gpl</groupId>
     <artifactId>orbit-parent</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
     <name>WSO2 Carbon GPL Orbit - Parent Maven Project</name>
     <description>orbit-parent</description>
