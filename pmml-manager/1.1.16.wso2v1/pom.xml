@@ -46,6 +46,7 @@
 
     <properties>
         <jpmml.manager.version>1.1.16</jpmml.manager.version>
+        <dmg.pmml.version>1.1.16.wso2v1</dmg.pmml.version>
         <guava.version.range>[15.0, 18.0]</guava.version.range>
     </properties>
 
@@ -61,11 +62,13 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            org.jpmml.manager.*
+                            org.jpmml.manager.*; version="${jpmml.manager.version}"
                         </Export-Package>
                         <Import-Package>
                             com.google.common.*; version="${guava.version.range}",
-                            *;resolution:=optional
+                            org.dmg.pmml; version="${dmg.pmml.version}",
+                            org.xml.sax,
+                            javax.xml.bind.annotation
                         </Import-Package>
                     </instructions>
                 </configuration>
