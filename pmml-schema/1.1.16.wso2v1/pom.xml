@@ -46,6 +46,7 @@
 
     <properties>
         <jpmml.schema.version>1.1.16</jpmml.schema.version>
+        <jpmml.schema.export.version>1.1.16.wso2v1</jpmml.schema.export.version>
     </properties>
 
     <build>
@@ -60,7 +61,7 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            org.jpmml.schema.*; version="${jpmml.schema.version}"
+                            org.jpmml.schema.*; version="${jpmml.schema.export.version}"
                         </Export-Package>
                     </instructions>
                 </configuration>
