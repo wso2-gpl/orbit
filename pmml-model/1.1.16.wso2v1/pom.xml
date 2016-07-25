@@ -46,9 +46,10 @@
 
     <properties>
         <jpmml.model.version>1.1.16</jpmml.model.version>
+        <jpmml.model.export.version>1.1.16.wso2v1</jpmml.model.export.version>
         <dmg.pmml.version>1.1.16.wso2v1</dmg.pmml.version>
         <sun.xml.bind.annotation.version>2.2.5.wso2v1</sun.xml.bind.annotation.version>
-        <jpmml.schema.version>1.1.16</jpmml.schema.version>
+        <jpmml.schema.version>1.1.16.wso2v1</jpmml.schema.version>
     </properties>
 
     <build>
@@ -63,14 +64,14 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            org.jpmml.model.*; version="${jpmml.model.version}",
+                            org.jpmml.model.*; version="${jpmml.model.export.version}",
                             org.dmg.pmml.*; version="${dmg.pmml.version}"
                         </Export-Package>
                         <Import-Package>
                             com.sun.xml.bind.annotation; version="${sun.xml.bind.annotation.version}",
                             org.eclipse.persistence.oxm.annotations;resolution:=optional,
                             org.jpmml.agent;resolution:=optional,
-                            org.jpmml.schema; version="${jpmml.schema.version}",
+                            org.jpmml.schema.*; version="${jpmml.schema.version}",
                             javax.xml.*,
                             org.w3c.dom,
                             org.xml.sax.*

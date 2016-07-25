@@ -46,11 +46,12 @@
 
     <properties>
         <jpmml.evaluator.version>1.1.16</jpmml.evaluator.version>
-        <guava.version.range>[15.0, 18.0]</guava.version.range>
-        <joda.version.range>[2.2, 2.5]</joda.version.range>
+        <jpmml.evaluator.export.version>1.1.16.wso2v1</jpmml.evaluator.export.version>
+        <guava.version.range>[15.0, 19.0]</guava.version.range>
+        <joda.version.range>[2.2, 2.9]</joda.version.range>
         <apache.commons.math3.version>3.2.0</apache.commons.math3.version>
-        <jpmml.manager.version>1.1.16</jpmml.manager.version>
-        <jpmml.model.version>1.1.16</jpmml.model.version>
+        <jpmml.manager.version>1.1.16.wso2v1</jpmml.manager.version>
+        <jpmml.model.version>1.1.16.wso2v1</jpmml.model.version>
         <dmg.pmml.version>1.1.16.wso2v1</dmg.pmml.version>
     </properties>
     <build>
@@ -65,15 +66,16 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            org.jpmml.evaluator.*; version="${jpmml.evaluator.version}"
+                            org.jpmml.evaluator.*; version="${jpmml.evaluator.export.version}"
                         </Export-Package>
                         <Import-Package>
                             com.google.common.*; version="${guava.version.range}",
                             org.joda.time.*; version="${joda.version.range}",
                             org.apache.commons.math3.*; version="${apache.commons.math3.version}",
-                            org.jpmml.manager; version="${jpmml.manager.version}",
-                            org.jpmml.model.*;version="${jpmml.model.version}",
-                            org.dmg.pmml; version="${dmg.pmml.version}",
+                            org.jpmml.manager.*; version="${jpmml.manager.version}",
+                            org.jpmml.model.*; version="${jpmml.model.version}",
+                            org.jpmml.model.visitors.*; version="${jpmml.model.version}",
+                            org.dmg.pmml.*; version="${dmg.pmml.version}",
                             javax.xml.*,
                             org.w3c.dom
                         </Import-Package>
