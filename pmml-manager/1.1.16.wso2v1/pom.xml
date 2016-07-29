@@ -41,6 +41,7 @@
             <groupId>org.jpmml</groupId>
             <artifactId>pmml-manager</artifactId>
             <version>${jpmml.manager.version}</version>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

@@ -42,21 +42,25 @@
             <groupId>com.github.lucarosellini.rJava</groupId>
             <artifactId>JRI</artifactId>
             <version>${rjava.version}</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.github.lucarosellini.rJava</groupId>
             <artifactId>JRIEngine</artifactId>
             <version>${rjava.version}</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.github.lucarosellini.rJava</groupId>
             <artifactId>REngine</artifactId>
             <version>${rjava.version}</version>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
     <properties>
         <rjava.version>0.9-7</rjava.version>
+        <rjava.export.version>0.9.7.wso2v1</rjava.export.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -72,7 +76,7 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            org.rosuda.*;-split-package:=merge-last
+                            org.rosuda.*;-split-package:=merge-last;version="${rjava.export.version}"
                         </Export-Package>
                         <Import-Package>
                             *;resolution:=optional

@@ -41,6 +41,7 @@
             <groupId>org.jpmml</groupId>
             <artifactId>pmml-evaluator</artifactId>
             <version>${jpmml.evaluator.version}</version>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
