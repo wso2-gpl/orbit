@@ -117,11 +117,6 @@
             <name>WSO2 GPL Maven Repository</name>
             <url>http://maven.wso2.org/nexus/content/repositories/wso2gpl/</url>
         </repository>
-        <snapshotRepository>
-            <id>wso2.gpl.snapshots</id>
-            <name>WSO2 GPL Maven Snapshot Repository</name>
-            <url>http://maven.wso2.org/nexus/content/repositories/wso2gpl-snapshots/</url>
-        </snapshotRepository>
     </distributionManagement>
 
 </project>
