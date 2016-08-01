@@ -21,7 +21,7 @@
 
     <groupId>org.wso2.orbit.org.geotools</groupId>
     <artifactId>gt-geojson</artifactId>
-    <version>13.0.0.wso2v1</version>
+    <version>13.6.0.wso2v1</version>
 
     <name>gt-geojson.wso2</name>
     <packaging>bundle</packaging>
@@ -47,8 +47,8 @@
     </dependencies>
 
     <properties>
-        <geotools.version>13.0</geotools.version>
-        <geotools.export.version>13.0.0.wso2v1</geotools.export.version>
+        <geotools.version>13.6</geotools.version>
+        <geotools.export.version>13.6.0.wso2v1</geotools.export.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -64,11 +64,15 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            com.vividsolutions.*;version="${geotools.export.version}",
+                            com.vividsolutions.*;version="1.13",
                             org.jdom.*;version="1.1.3",
                             javax.media.*;version="1.1.3",
-                            org.geotools.*;-split-package:=merge-last;version="13.0",
+                            org.geotools.*;-split-package:=merge-last;version="${geotools.export.version}"
                         </Export-Package>
+                        <Private-Package>
+                            !org.geotools.*,
+                            org.json.simple.*
+                        </Private-Package>
                         <Import-Package>
                             *;resolution:=optional
                         </Import-Package>

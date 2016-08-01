@@ -36,10 +36,9 @@
     </licenses>
 
     <modules>
-        <!--<module>stanford-tregex-installer</module>-->
-        <module>stanford-nlp/3.4.0.wso2v1</module>
+        <module>stanford-nlp/3.6.0.wso2v1</module>
         <module>r-java/0.9.7.wso2v1</module>
-        <module>gt-geojson/13.0.0.wso2v1</module>
+        <module>gt-geojson/13.6.0.wso2v1</module>
         <module>pmml-manager/1.1.16.wso2v1</module>
         <module>pmml-model/1.1.16.wso2v1</module>
         <module>pmml-schema/1.1.16.wso2v1</module>
@@ -74,45 +73,6 @@
             </plugins>
         </pluginManagement>
     </build>
-
-    <repositories>
-        <!-- WSO2 released artifact repository -->
-        <repository>
-            <id>wso2.releases</id>
-            <name>WSO2 Releases Repository</name>
-            <url>http://maven.wso2.org/nexus/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </releases>
-        </repository>
-
-        <!-- WSO2 Snapshot artifact repository -->
-        <repository>
-            <id>wso2.snapshots</id>
-            <name>WSO2 Snapshot Repository</name>
-            <url>http://maven.wso2.org/nexus/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-
-        <repository>
-            <id>wso2-nexus</id>
-            <name>WSO2 internal Repository</name>
-            <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </releases>
-        </repository>
-    </repositories>
 
     <distributionManagement>
         <repository>
