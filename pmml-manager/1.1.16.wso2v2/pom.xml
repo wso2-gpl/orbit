@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.wso2.orbit.org.jpmml</groupId>
+    <artifactId>pmml-manager</artifactId>
+    <version>1.1.16.wso2v2</version>
+
+    <name>pmml-manager.wso2</name>
+    <packaging>bundle</packaging>
+    <description>
+        This bundle will represent JPMML Manager Library.
+    </description>
+    <url>http://wso2.org</url>
+
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License version 3 (AGPLv3)</name>
+            <url>https://www.gnu.org/licenses/agpl.txt</url>
+        </license>
+    </licenses>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jpmml</groupId>
+            <artifactId>pmml-manager</artifactId>
+            <version>${jpmml.manager.version}</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <jpmml.manager.version>1.1.16</jpmml.manager.version>
+        <jpmml.manager.export.version>1.1.16.wso2v2</jpmml.manager.export.version>
+        <dmg.pmml.version>1.1.16.wso2v1</dmg.pmml.version>
+        <guava.version.range>[15.0, 19.0]</guava.version.range>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.3.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Name>${project.artifactId}</Bundle-Name>
+                        <Export-Package>
+                            org.jpmml.manager.*; version="${jpmml.manager.export.version}"
+                        </Export-Package>
+                        <Import-Package>
+                            com.google.common.*; version="${guava.version.range}",
+                            org.dmg.pmml.*; version="${dmg.pmml.version}",
+                            org.xml.sax,
+                            javax.xml.bind.annotation
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>wso2.gpl.releases</id>
+            <name>WSO2 GPL Maven Repository</name>
+            <url>http://maven.wso2.org/nexus/content/repositories/wso2gpl/</url>
+        </repository>
+    </distributionManagement>
+
+</project>
