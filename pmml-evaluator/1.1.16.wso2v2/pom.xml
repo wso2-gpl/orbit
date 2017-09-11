@@ -3,56 +3,58 @@
   ~ Copyright (C) 2017 WSO2 Inc. (http://wso2.com)
   ~
   ~ This program is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
+  ~ it under the terms of the GNU Affero General Public License as published by
   ~ the Free Software Foundation, either version 3 of the License, or
   ~ (at your option) any later version.
   ~
   ~ This program is distributed in the hope that it will be useful,
   ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
   ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
+  ~ GNU Affero General Public License for more details.
   ~
-  ~ You should have received a copy of the GNU General Public License
+  ~ You should have received a copy of the GNU Affero General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses />.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.wso2.orbit.org.jpmml</groupId>
-    <artifactId>pmml-model</artifactId>
-    <version>1.1.16.wso2v1</version>
+    <artifactId>pmml-evaluator</artifactId>
+    <version>1.1.16.wso2v2</version>
 
-    <name>pmml-model.wso2</name>
+    <name>pmml-evaluator.wso2</name>
     <packaging>bundle</packaging>
     <description>
-        This bundle will represent JPMML Model Library.
+        This bundle will represent JPMML Evaluator Library.
     </description>
     <url>http://wso2.org</url>
 
     <licenses>
         <license>
-            <name>GNU General Public License version 3 (GPLv3)</name>
-            <url>http://www.gnu.org/licenses/gpl-3.0.txt</url>
+            <name>GNU Affero General Public License version 3 (AGPLv3)</name>
+            <url>https://www.gnu.org/licenses/agpl.txt</url>
         </license>
     </licenses>
 
     <dependencies>
         <dependency>
             <groupId>org.jpmml</groupId>
-            <artifactId>pmml-model</artifactId>
-            <version>${jpmml.model.version}</version>
+            <artifactId>pmml-evaluator</artifactId>
+            <version>${jpmml.evaluator.version}</version>
             <optional>true</optional>
         </dependency>
     </dependencies>
 
     <properties>
-        <jpmml.model.version>1.1.16</jpmml.model.version>
-        <jpmml.model.export.version>1.1.16.wso2v1</jpmml.model.export.version>
+        <jpmml.evaluator.version>1.1.16</jpmml.evaluator.version>
+        <jpmml.evaluator.export.version>1.1.16.wso2v1</jpmml.evaluator.export.version>
+        <guava.version.range>[15.0, 19.0]</guava.version.range>
+        <joda.version.range>[2.2, 2.9]</joda.version.range>
+        <apache.commons.math3.version>3.2.0</apache.commons.math3.version>
+        <jpmml.manager.version>1.1.16.wso2v1</jpmml.manager.version>
+        <jpmml.model.version>1.1.16.wso2v1</jpmml.model.version>
         <dmg.pmml.version>1.1.16.wso2v1</dmg.pmml.version>
-        <sun.xml.bind.annotation.version>2.2.5.wso2v1</sun.xml.bind.annotation.version>
-        <jpmml.schema.version>1.1.16.wso2v1</jpmml.schema.version>
     </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -65,17 +67,18 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
-                            org.jpmml.model.*; version="${jpmml.model.export.version}",
-                            org.dmg.pmml.*; version="${dmg.pmml.version}"
+                            org.jpmml.evaluator.*; version="${jpmml.evaluator.export.version}"
                         </Export-Package>
                         <Import-Package>
-                            com.sun.xml.bind.annotation; version="${sun.xml.bind.annotation.version}",
-                            org.eclipse.persistence.oxm.annotations;resolution:=optional,
-                            org.jpmml.agent;resolution:=optional,
-                            org.jpmml.schema.*; version="${jpmml.schema.version}",
+                            com.google.common.*; version="${guava.version.range}",
+                            org.joda.time.*; version="${joda.version.range}",
+                            org.apache.commons.math3.*; version="${apache.commons.math3.version}",
+                            org.jpmml.manager.*; version="${jpmml.manager.version}",
+                            org.jpmml.model.*; version="${jpmml.model.version}",
+                            org.jpmml.model.visitors.*; version="${jpmml.model.version}",
+                            org.dmg.pmml.*; version="${dmg.pmml.version}",
                             javax.xml.*,
-                            org.w3c.dom,
-                            org.xml.sax.*
+                            org.w3c.dom
                         </Import-Package>
                     </instructions>
                 </configuration>
@@ -90,6 +93,5 @@
             <url>http://maven.wso2.org/nexus/content/repositories/wso2gpl/</url>
         </repository>
     </distributionManagement>
-
 
 </project>
